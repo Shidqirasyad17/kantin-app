@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head><title>E-Kantin</title></head>
+    <body>
+        <h1 id="kantin-name">Memuat...</h1>
+        <ul id="menu-list"></ul>
+        <hr>
+        <h3>Tambah Menu Baru:</h3>
+        <input type="text" id = "menu-input" placeholder="Nama makanan.....">
+        <button onclick="tambahMenu()">Tambah Menu</button>
+        
+        <script>
+            const API_URL = 'http://localhost:5000/api';
+
+            function loadData(){
+                fetch(`${API_URL}/info)
+                .then(res => res.json())
+                .then(data=> {
+                    document.getElementById('kantin-name').innertext = data.nama_kantin;
+                    const list = document.getElementById('menu-list');
+                    list.innerHTML = '';
+                    data.menu.forEach(item => {
+                    Let li = document. createElement('li');
+                    li.innertext = item;
+                    list.appendChild(li);
+                    });
+                    });
+            }
+        </script>
+    </body>
+</html>

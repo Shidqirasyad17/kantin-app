@@ -1,0 +1,11 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: kantin-ingress
+  #annotations:
+  #nginx.inggress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: kantin.local
+    http:
+      paths:
